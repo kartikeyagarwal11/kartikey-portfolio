@@ -1,10 +1,17 @@
-import Link from "next/link"
-import { ArrowRight, Github, Linkedin, Briefcase, FolderOpen } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import Link from "next/link";
+import {
+  ArrowRight,
+  Github,
+  Linkedin,
+  Briefcase,
+  FolderOpen,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ResumeButton } from "@/components/common/ResumeButton";
 
 export default function HomePage() {
   return (
-    <div className="relative">
+    <div className="relative overflow-x-hidden">
       {/* Hero Section */}
       <section className="relative flex min-h-screen flex-col justify-center px-6 pt-16">
         <div className="mx-auto w-full max-w-6xl">
@@ -19,15 +26,22 @@ export default function HomePage() {
                   Kartikey Agarwal
                 </h1>
                 <p className="text-xl font-medium text-muted-foreground sm:text-2xl">
-                  Engineer → Product Builder → Future Founder
+                  Engineer working at the intersection of technology, products,
+                  and data-driven strategies.
                 </p>
               </div>
 
-              <p className="max-w-lg text-lg leading-relaxed text-muted-foreground">
-                I build fintech systems, AI infrastructure, and scalable digital products. 
-                Currently exploring the intersection of engineering and product thinking.
-              </p>
-
+              <div className="max-w-lg text-lg leading-relaxed text-muted-foreground">
+                <p>
+                  I work across engineering and product, building fintech
+                  infrastructure, AI systems, and full-stack applications.
+                </p>
+                <p>
+                  I studied Electrical Engineering at IIT Delhi and have worked
+                  in early-stage startups across fintech, AI infrastructure, and
+                  E-commerce.
+                </p>
+              </div>
               <div className="flex flex-wrap gap-3">
                 <Button asChild size="lg" className="gap-2">
                   <Link href="/work">
@@ -41,17 +55,21 @@ export default function HomePage() {
                     Product Case Studies
                   </Link>
                 </Button>
+                <ResumeButton variant="outline" size="lg" />
               </div>
 
               <div className="flex items-center gap-4 pt-4">
-                <Link href="/projects" className="group flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground">
+                <Link
+                  href="/projects"
+                  className="group flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
                   <span>Projects</span>
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
                 <span className="text-border">|</span>
-                <Link 
-                  href="https://github.com" 
-                  target="_blank" 
+                <Link
+                  href="https://github.com/Kartikey-Agarwal911"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
@@ -59,9 +77,9 @@ export default function HomePage() {
                   <span>GitHub</span>
                 </Link>
                 <span className="text-border">|</span>
-                <Link 
-                  href="https://linkedin.com" 
-                  target="_blank" 
+                <Link
+                  href="https://linkedin.com/in/kartikey-agarwal-ba3a19201"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
@@ -72,14 +90,40 @@ export default function HomePage() {
             </div>
 
             {/* Right Column - Side Navigation */}
-            <div className="hidden lg:flex lg:flex-col lg:items-end lg:gap-6">
-              <nav className="flex flex-col items-end gap-4">
-                <SideNavItem href="/work" label="Work Experience" description="Startups & Impact" />
-                <SideNavItem href="/projects" label="Projects" description="Technical Builds" />
-                <SideNavItem href="/case-studies" label="Case Studies" description="Product Thinking" />
-                <SideNavItem href="/writing" label="Writing" description="Insights & Analysis" />
-                <SideNavItem href="/about" label="About" description="My Story" />
+            <div className="hidden lg:flex lg:flex-col lg:items-end lg:gap-6 relative">
+              <nav className="flex flex-col items-end gap-4 z-10">
+                <SideNavItem
+                  href="/work"
+                  label="Work Experience"
+                  description="Startups & Impact"
+                />
+                <SideNavItem
+                  href="/projects"
+                  label="Projects"
+                  description="Technical Builds"
+                />
+                <SideNavItem
+                  href="/case-studies"
+                  label="Case Studies"
+                  description="Product Thinking"
+                />
+                <SideNavItem
+                  href="/about"
+                  label="About"
+                  description="My Story"
+                />
               </nav>
+              {/* Portrait Silhouette Background */}
+              <div className="portrait-silhouette absolute right-0 top-0 h-full w-[60%] -z-10 animate-[float_12s_ease-in-out_infinite] rounded-2xl overflow-hidden">
+                <img
+                  src="/images/Kartikey.jfif"
+                  alt=""
+                  className="w-full h-full object-cover grayscale brightness-60 contrast-125 rounded-2xl"
+                />
+                <div className="absolute inset-0 bg-gradient-to-l from-transparent via-black/20 to-black/80 rounded-2xl" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent rounded-2xl" />
+                <div className="absolute inset-0 bg-gradient-to-br from-teal-900/5 to-blue-900/3 rounded-2xl" />
+              </div>
             </div>
           </div>
         </div>
@@ -94,11 +138,16 @@ export default function HomePage() {
       {/* Quick Stats Section */}
       <section className="border-t border-border/50 bg-card/50 px-6 py-20">
         <div className="mx-auto max-w-6xl">
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            <StatCard value="4+" label="Startups Built" />
+          <div className="grid gap-13 sm:grid-cols-2 lg:grid-cols-4">
             <StatCard value="IIT Delhi" label="Education" />
-            <StatCard value="Fintech" label="Primary Domain" />
-            <StatCard value="Full-Stack" label="Tech Expertise" />
+            <StatCard
+              value="Fintech & AI Systems"
+              label="Industry Experience"
+            />
+            <StatCard
+              value="Full-Stack Engineering in Startups"
+              label="Technical Work"
+            />
           </div>
         </div>
       </section>
@@ -108,57 +157,84 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl">
           <div className="mb-12 flex items-center justify-between">
             <div>
-              <h2 className="text-2xl font-bold text-foreground sm:text-3xl">Recent Work</h2>
-              <p className="mt-2 text-muted-foreground">Building impactful products at leading startups</p>
+              <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
+                Recent Work
+              </h2>
+              <p className="mt-2 text-muted-foreground">
+                Work from recent roles in building impactful products
+              </p>
             </div>
-            <Link href="/work" className="group hidden items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground sm:flex">
+            <Link
+              href="/work"
+              className="group hidden items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground sm:flex"
+            >
               View all work
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
-            <WorkPreviewCard 
-              company="Zinc Money"
-              role="Engineering Lead"
-              description="Building compliant fintech infrastructure for modern banking"
-              tags={["Fintech", "Full-Stack", "Compliance"]}
-            />
-            <WorkPreviewCard 
+            <WorkPreviewCard
               company="Ciroos.ai"
-              role="AI Infrastructure"
-              description="Developing scalable AI systems for enterprise automation"
-              tags={["AI/ML", "Infrastructure", "Backend"]}
+              role="Member of Technical Staff"
+              description="AI-driven SRE teammate for automating incident analysis and operational responses"
+              tags={["Agentic AI", "Kubernetes", "MCP Servers"]}
+            />
+            <WorkPreviewCard
+              company="Zinc Money"
+              role="Software Engineer"
+              description="Building compliant fintech infrastructure for payments and cross-border financial flows"
+              tags={["Fintech", "React", "Python", "FastAPI"]}
             />
           </div>
 
           <div className="mt-8 text-center sm:hidden">
-            <Link href="/work" className="inline-flex items-center gap-2 text-sm text-accent transition-colors hover:text-accent/80">
+            <Link
+              href="/work"
+              className="inline-flex items-center gap-2 text-sm text-accent transition-colors hover:text-accent/80"
+            >
               View all work
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </div>
       </section>
+
+      {/* Contact Form Section */}
+      <section className="px-6 py-20">
+        <ContactForm
+          compact
+          title="Say Hello"
+          subtitle="Let's discuss how we can work together on something impactful."
+        />
+      </section>
     </div>
-  )
+  );
 }
 
-function SideNavItem({ href, label, description }: { href: string; label: string; description: string }) {
+import { ContactForm } from "@/components/contact/ContactForm";
+
+function SideNavItem({
+  href,
+  label,
+  description,
+}: {
+  href: string;
+  label: string;
+  description: string;
+}) {
   return (
-    <Link 
+    <Link
       href={href}
       className="group flex flex-col items-end gap-1 text-right transition-all"
     >
       <span className="text-sm font-medium text-foreground transition-colors group-hover:text-accent">
         {label}
       </span>
-      <span className="text-xs text-muted-foreground">
-        {description}
-      </span>
+      <span className="text-xs text-muted-foreground">{description}</span>
       <span className="h-px w-0 bg-accent transition-all group-hover:w-full" />
     </Link>
-  )
+  );
 }
 
 function StatCard({ value, label }: { value: string; label: string }) {
@@ -167,30 +243,39 @@ function StatCard({ value, label }: { value: string; label: string }) {
       <span className="text-2xl font-bold text-foreground">{value}</span>
       <span className="text-sm text-muted-foreground">{label}</span>
     </div>
-  )
+  );
 }
 
-function WorkPreviewCard({ company, role, description, tags }: { company: string; role: string; description: string; tags: string[] }) {
+function WorkPreviewCard({
+  company,
+  role,
+  description,
+  tags,
+}: {
+  company: string;
+  role: string;
+  description: string;
+  tags: string[];
+}) {
   return (
-    <Link 
-      href="/work"
-      className="group flex flex-col gap-4 rounded-xl border border-border/50 bg-card p-6 transition-all hover:border-accent/30 hover:bg-card/80"
-    >
+    <div className="group flex flex-col gap-4 rounded-xl border border-border/50 bg-card p-6 transition-all hover:shadow-lg hover:-translate-y-0.5">
       <div className="flex items-start justify-between">
         <div>
           <h3 className="text-lg font-semibold text-foreground">{company}</h3>
           <p className="text-sm text-muted-foreground">{role}</p>
         </div>
-        <ArrowRight className="h-5 w-5 text-muted-foreground transition-all group-hover:translate-x-1 group-hover:text-accent" />
       </div>
       <p className="text-muted-foreground">{description}</p>
       <div className="flex flex-wrap gap-2">
         {tags.map((tag) => (
-          <span key={tag} className="rounded-full bg-secondary px-3 py-1 text-xs text-secondary-foreground">
+          <span
+            key={tag}
+            className="rounded-full bg-secondary px-3 py-1 text-xs text-secondary-foreground"
+          >
             {tag}
           </span>
         ))}
       </div>
-    </Link>
-  )
+    </div>
+  );
 }

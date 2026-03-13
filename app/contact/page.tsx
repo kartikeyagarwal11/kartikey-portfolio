@@ -1,29 +1,31 @@
-import Link from "next/link"
-import { Github, Linkedin, Mail, MapPin, ArrowUpRight } from "lucide-react"
+import Link from "next/link";
+
+import { Github, Linkedin, Mail, MapPin, ArrowUpRight } from "lucide-react";
+import { ContactForm } from "@/components/contact/ContactForm";
 
 const contactLinks = [
   {
     icon: Mail,
     label: "Email",
-    value: "hello@kartikey.dev",
-    href: "mailto:hello@kartikey.dev",
-    description: "Best for detailed inquiries"
+    value: "sbikartikey0911@gmail.com",
+    href: "mailto:sbikartikey0911@gmail.com",
+    description: "Best for detailed inquiries",
   },
   {
     icon: Linkedin,
     label: "LinkedIn",
-    value: "linkedin.com/in/kartikey",
-    href: "https://linkedin.com",
-    description: "Let's connect professionally"
+    value: "linkedin.com/in/kartikey-agarwal-ba3a19201",
+    href: "https://linkedin.com/in/kartikey-agarwal-ba3a19201",
+    description: "Let's connect professionally",
   },
   {
     icon: Github,
     label: "GitHub",
-    value: "github.com/kartikey",
+    value: "github.com/Kartikey-Agarwal911",
     href: "https://github.com",
-    description: "Check out my code"
-  }
-]
+    description: "Check out my code",
+  },
+];
 
 export default function ContactPage() {
   return (
@@ -31,13 +33,16 @@ export default function ContactPage() {
       {/* Header */}
       <section className="px-6">
         <div className="mx-auto max-w-4xl">
-          <span className="text-sm font-medium uppercase tracking-widest text-accent">Contact</span>
+          <span className="text-sm font-medium uppercase tracking-widest text-accent">
+            Contact
+          </span>
           <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl text-balance">
             Let&apos;s Connect
           </h1>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            Whether you want to discuss a project, explore collaboration opportunities, 
-            or just have a conversation about technology and startups—I&apos;d love to hear from you.
+            Whether you want to discuss a project, explore collaboration
+            opportunities, or just have a conversation about technology and
+            startups—I&apos;d love to hear from you.
           </p>
         </div>
       </section>
@@ -63,7 +68,9 @@ export default function ContactPage() {
               </div>
               <div>
                 <h2 className="font-semibold text-foreground">Location</h2>
-                <p className="text-sm text-muted-foreground">Based in India, working globally</p>
+                <p className="text-sm text-muted-foreground">
+                  Based in India, working globally
+                </p>
               </div>
             </div>
           </div>
@@ -74,27 +81,11 @@ export default function ContactPage() {
       <section className="mt-24 px-6">
         <div className="mx-auto max-w-4xl">
           <div className="rounded-xl border border-accent/30 bg-accent/5 p-8 md:p-12 text-center">
-            <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
-              Have a project in mind?
-            </h2>
-            <p className="mt-4 text-lg text-muted-foreground max-w-xl mx-auto">
-              I&apos;m always interested in new challenges and opportunities to build impactful products.
-            </p>
-            <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-              <Link
-                href="mailto:hello@kartikey.dev"
-                className="inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3 font-medium text-accent-foreground transition-colors hover:bg-accent/90"
-              >
-                <Mail className="h-5 w-5" />
-                Send an Email
-              </Link>
-              <Link
-                href="/work"
-                className="inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
-              >
-                Or view my work first
-                <ArrowUpRight className="h-4 w-4" />
-              </Link>
+            <div className=" flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+              <ContactForm
+                title="Have a project in mind?"
+                subtitle="I'm always interested in new challenges and opportunities to build impactful products."
+              />
             </div>
           </div>
         </div>
@@ -103,31 +94,33 @@ export default function ContactPage() {
       {/* Quick Links */}
       <section className="mt-16 px-6">
         <div className="mx-auto max-w-4xl">
-          <h2 className="text-sm font-medium uppercase tracking-widest text-muted-foreground">Quick Links</h2>
+          <h2 className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
+            Quick Links
+          </h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <QuickLink href="/work" label="Work Experience" />
             <QuickLink href="/projects" label="Projects" />
             <QuickLink href="/case-studies" label="Case Studies" />
-            <QuickLink href="/writing" label="Writing" />
+            {/* <QuickLink href="/writing" label="Writing" /> */}
           </div>
         </div>
       </section>
     </div>
-  )
+  );
 }
 
-function ContactCard({ 
-  icon: Icon, 
-  label, 
-  value, 
-  href, 
-  description 
-}: { 
-  icon: typeof Mail
-  label: string
-  value: string
-  href: string
-  description: string
+function ContactCard({
+  icon: Icon,
+  label,
+  value,
+  href,
+  description,
+}: {
+  icon: typeof Mail;
+  label: string;
+  value: string;
+  href: string;
+  description: string;
 }) {
   return (
     <Link
@@ -148,7 +141,7 @@ function ContactCard({
         <p className="mt-2 text-sm text-muted-foreground">{description}</p>
       </div>
     </Link>
-  )
+  );
 }
 
 function QuickLink({ href, label }: { href: string; label: string }) {
@@ -160,5 +153,5 @@ function QuickLink({ href, label }: { href: string; label: string }) {
       <span className="text-sm font-medium text-foreground">{label}</span>
       <ArrowUpRight className="h-4 w-4 text-muted-foreground transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent" />
     </Link>
-  )
+  );
 }

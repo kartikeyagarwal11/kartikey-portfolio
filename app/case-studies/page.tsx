@@ -1,44 +1,39 @@
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
+"use client";
+
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 const caseStudies = [
   {
-    slug: "zinc-payment-system",
-    title: "Building a Compliant Payment System",
-    company: "Zinc Money",
-    category: "Fintech Infrastructure",
-    summary: "How we designed and built a payment processing system that handles 50K+ daily transactions while maintaining full regulatory compliance.",
-    metrics: ["99.99% uptime", "50K+ daily txns", "70% faster compliance"],
-    image: "/case-studies/zinc.jpg"
+    title: "Improving Cost Transparency in Emergent",
+    company: "Emergent",
+    category: "Product Strategy",
+    description:
+      "A product strategy proposal focused on improving cost transparency and reducing credit anxiety in AI-powered application generation platforms.",
+    pdfLink: "/case-studies/Kartikey Agarwal Product Case Study Emergent.pdf",
+    tags: [
+      "Product Strategy",
+      "AI Platforms",
+      "Pricing Systems",
+      "User Retention",
+    ],
   },
   {
-    slug: "ciroos-ml-pipeline",
-    title: "Scaling ML Inference at Enterprise Level",
-    company: "Ciroos.ai",
-    category: "AI Infrastructure",
-    summary: "Designing an auto-scaling ML pipeline that reduced inference latency by 60% while cutting cloud costs by 40%.",
-    metrics: ["1M+ predictions/day", "60% latency reduction", "40% cost savings"],
-    image: "/case-studies/ciroos.jpg"
+    title: "Reducing Customer Support Queries at Swiggy",
+    company: "Swiggy",
+    category: "Product Operations",
+    description:
+      "A product analysis exploring how Swiggy can reduce customer support load by improving order tracking, refund transparency, and self-serve support systems.",
+    pdfLink:
+      "/case-studies/Case Study_ Improving Customer Support Efficiency at Swiggy.pdf",
+    tags: [
+      "Marketplace Operations",
+      "Customer Experience",
+      "Support Systems",
+      "Product Strategy",
+    ],
   },
-  {
-    slug: "sustainmall-marketplace",
-    title: "Sustainability Scoring System",
-    company: "SustainMall",
-    category: "E-commerce Platform",
-    summary: "Building a verification system that scores and showcases product sustainability credentials for 10K+ products.",
-    metrics: ["10K+ products", "500+ brands", "35% less cart abandonment"],
-    image: "/case-studies/sustainmall.jpg"
-  },
-  {
-    slug: "legal-trust-verification",
-    title: "Blockchain Document Verification",
-    company: "The Legal Trust Network",
-    category: "Legal Tech",
-    summary: "Implementing a blockchain-based system for verifying and tracking legal documents across 200+ law firms.",
-    metrics: ["200+ law firms", "Immutable records", "Real-time tracking"],
-    image: "/case-studies/legal.jpg"
-  }
-]
+];
 
 export default function CaseStudiesPage() {
   return (
@@ -46,12 +41,15 @@ export default function CaseStudiesPage() {
       {/* Header */}
       <section className="px-6">
         <div className="mx-auto max-w-6xl">
-          <span className="text-sm font-medium uppercase tracking-widest text-accent">Case Studies</span>
+          <span className="text-sm font-medium uppercase tracking-widest text-accent">
+            Case Studies
+          </span>
           <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl text-balance">
-            Product Case Studies
+            Case Studies
           </h1>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            Deep dives into product challenges, solutions, and the engineering decisions behind impactful features.
+            Product thinking, system design, and business analysis behind
+            complex platforms.
           </p>
         </div>
       </section>
@@ -60,57 +58,75 @@ export default function CaseStudiesPage() {
       <section className="mt-16 px-6">
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-8 md:grid-cols-2">
-            {caseStudies.map((study) => (
-              <CaseStudyCard key={study.slug} study={study} />
+            {caseStudies.map((study, index) => (
+              <CaseStudyCard key={index} study={study} />
             ))}
           </div>
         </div>
       </section>
     </div>
-  )
+  );
 }
 
-function CaseStudyCard({ study }: { study: typeof caseStudies[0] }) {
+function CaseStudyCard({ study }:any) {
   return (
-    <Link 
-      href={`/case-studies/${study.slug}`}
-      className="group flex flex-col rounded-xl border border-border/50 bg-card overflow-hidden transition-all hover:border-accent/30"
+    <article
+      className="group flex flex-col rounded-xl border border-border/50 bg-card overflow-hidden transition-all duration-300 hover:border-accent hover:shadow-lg hover:-translate-y-0.5 cursor-pointer"
+      onClick={() =>
+        window.open(study.pdfLink, "_blank", "noopener,noreferrer")
+      }
     >
-      {/* Image placeholder */}
-      <div className="aspect-video w-full bg-secondary/50 flex items-center justify-center">
-        <div className="text-muted-foreground text-sm">{study.company}</div>
+      {/* Company Banner */}
+      <div className="flex items-center justify-center text-xl font-semibold">
+        {study.company === "Emergent" ? (
+          <div className="bg-gradient-to-r from-accent to-accent-foreground text-accent-foreground px-6 md:px-18 py-3 rounded-b-xl">
+            Emergent
+          </div>
+        ) : (
+          <div className="bg-orange-500 text-white px-6 md:px-18 py-3 rounded-b-xl">
+            Swiggy
+          </div>
+        )}
       </div>
-      
-      <div className="flex flex-col p-6">
-        <div className="flex items-center gap-2">
+
+      <div className="flex flex-col p-6 flex-1">
+        <div className="flex items-center gap-2 mb-4">
           <span className="rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent">
             {study.category}
           </span>
-          <span className="text-xs text-muted-foreground">{study.company}</span>
         </div>
-        
-        <h2 className="mt-4 text-xl font-semibold text-foreground group-hover:text-accent transition-colors">
+
+        <h2 className="text-xl font-semibold text-foreground mb-3 group-hover:text-accent transition-colors">
           {study.title}
         </h2>
-        
-        <p className="mt-3 text-muted-foreground leading-relaxed">
-          {study.summary}
+
+        <p className="text-muted-foreground leading-relaxed mb-6 flex-1">
+          {study.description}
         </p>
-        
-        {/* Metrics */}
-        <div className="mt-6 flex flex-wrap gap-4">
-          {study.metrics.map((metric) => (
-            <span key={metric} className="text-sm font-medium text-foreground">
-              {metric}
+
+        {/* Tags */}
+        <div className="flex flex-wrap gap-2 mb-6">
+          {study.tags.map((tag:any) => (
+            <span
+              key={tag}
+              className="rounded-full bg-secondary px-3 py-1 text-xs text-secondary-foreground"
+            >
+              {tag}
             </span>
           ))}
         </div>
-        
-        <div className="mt-6 flex items-center gap-2 text-sm font-medium text-accent">
+
+        {/* Read Case Study Button */}
+        <Link
+          href={study.pdfLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-accent/80 transition-colors"
+        >
           Read Case Study
-          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-        </div>
+          <ArrowRight className="h-4 w-4 transition-transform" />
+        </Link>
       </div>
-    </Link>
-  )
+    </article>
+  );
 }
