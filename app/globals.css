@@ -136,3 +136,41 @@
     transform: scale(1.02) translateY(0px);
   }
 }
+
+/* Mobile Hero Portrait Background */
+@keyframes float-mobile {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+.animate-float-mobile {
+  animation: float-mobile 10s ease-in-out infinite;
+}
+.mask-fade-gradient {
+  mask-image:
+    radial-gradient(circle at 20% 30%, black 25%, transparent 60%),
+    radial-gradient(circle at 80% 70%, black 30%, transparent 65%),
+    linear-gradient(
+      135deg,
+      transparent 0%,
+      black 25%,
+      black 75%,
+      transparent 100%
+    );
+  -webkit-mask-image:
+    radial-gradient(circle at 20% 30%, black 25%, transparent 60%),
+    radial-gradient(circle at 80% 70%, black 30%, transparent 65%),
+    linear-gradient(
+      135deg,
+      transparent 0%,
+      black 25%,
+      black 75%,
+      transparent 100%
+    );
+  mask-composite: multiply;
+  -webkit-mask-composite: multiply;
+}

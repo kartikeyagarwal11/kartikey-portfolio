@@ -89,6 +89,18 @@ export default function HomePage() {
               </div>
             </div>
 
+            {/* Mobile Portrait Background */}
+            <div className="lg:hidden absolute inset-0 -z-10 overflow-hidden">
+              <img
+                src="/images/Kartikey.jfif"
+                alt=""
+                className="w-full h-full object-cover grayscale brightness-50 contrast-125 opacity-25 rounded-2xl animate-float-mobile"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-transparent rounded-2xl" />
+              <div className="absolute inset-0 bg-gradient-to-br from-teal-900/15 via-transparent to-blue-900/10 rounded-2xl" />
+              <div className="absolute inset-0 mask-fade-gradient rounded-2xl" />
+            </div>
+
             {/* Right Column - Side Navigation */}
             <div className="hidden lg:flex lg:flex-col lg:items-end lg:gap-6 relative">
               <nav className="flex flex-col items-end gap-4 z-10">

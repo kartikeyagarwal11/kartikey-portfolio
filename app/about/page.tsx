@@ -29,7 +29,7 @@ export default function AboutPage() {
                   {/* Profile placeholder */}
                   <div className="aspect-square w-full max-w-[200px] overflow-hidden rounded-xl bg-secondary/50">
                     <img
-                      src="/images/kartikey.jfif"
+                      src="/images/Kartikey.jfif"
                       alt="Kartikey Agarwal"
                       className="h-full w-full object-cover"
                     />
@@ -99,7 +99,7 @@ export default function AboutPage() {
                   My early interest in systems and software started with
                   academic projects around distributed systems, machine
                   learning, and blockchain. Over time, that curiosity evolved
-                  into a deeper interest in how products are actually built —
+                  into a deeper interest in how products are actually built; 
                   how engineering, product strategy, user experience, and
                   business goals all intersect.
                 </p>
@@ -122,7 +122,7 @@ export default function AboutPage() {
                   At{" "}
                   <span className="text-foreground font-medium">Ciroos.ai</span>
                   , I worked on systems at the intersection of infrastructure,
-                  observability, and AI — building integrations that help
+                  observability, and AI; building integrations that help
                   intelligent systems analyze code repositories, logs, and
                   production incidents. The experience gave me exposure to how
                   developer tooling, system reliability, and automation
@@ -135,13 +135,13 @@ export default function AboutPage() {
 
                 <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
                   While working as an engineer, I became increasingly interested
-                  in the product side of building technology — understanding
+                  in the product side of building technology, understanding
                   user behavior, defining problems clearly, and making
                   data-informed decisions. I've worked with product analytics
                   tools like Mixpanel and Google Analytics to track product
                   usage and understand how users interact with features. I enjoy
                   breaking down successful products to understand why certain
-                  decisions were made — from pricing models to growth loops and
+                  decisions were made, from pricing models to growth loops and
                   product architecture.
                 </p>
 
@@ -164,7 +164,7 @@ export default function AboutPage() {
                 <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
                   My long-term goal is to build and operate products end-to-end.
                   I'm particularly interested in roles where technology,
-                  strategy, and execution intersect — whether that's product
+                  strategy, and execution intersect; whether that's product
                   management, founder's office roles, or early-stage product
                   building.
                 </p>
