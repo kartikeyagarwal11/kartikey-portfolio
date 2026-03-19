@@ -100,9 +100,13 @@ function CaseStudyCard({ study }: any) {
           <div className="bg-gradient-to-r from-accent to-accent-foreground text-accent-foreground px-6 md:px-18 py-3 rounded-b-xl">
             Emergent
           </div>
-        ) : (
+        ) : study.company === "Swiggy" ? (
           <div className="bg-orange-500 text-white px-6 md:px-18 py-3 rounded-b-xl">
             Swiggy
+          </div>
+        ) : (
+          <div className="bg-black text-white px-6 md:px-18 py-3 rounded-b-xl">
+            ChatGPT
           </div>
         )}
       </div>
