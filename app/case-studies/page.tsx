@@ -33,6 +33,24 @@ const caseStudies = [
       "Product Strategy",
     ],
   },
+  {
+    title: "Scaling Voice Adoption for ChatGPT in India",
+    company: "ChatGPT",
+    category: "User Behavior Analysis & KPI Design",
+    description:
+      "Explored why ChatGPT’s voice feature struggles to scale in India despite strong market tailwinds. Combined user behavior insights, UX analysis, and competitor benchmarking to identify friction across discovery, trial, and retention. Built a KPI-driven framework and proposed product levers to improve adoption and repeat usage of voice interactions.",
+    pdfLink:
+      "/case-studies/public/case-studies/Kartikey_Agarwal_Voice_Adoption_Strategy_ChatGPT.pdf",
+    tags: [
+      "Product Thinking",
+      "User Behavior Analysis",
+      "KPI Design",
+      "Funnel Analysis",
+      "UX Analysis",
+      "Competitive Benchmarking",
+      "Problem Structuring",
+    ],
+  },
 ];
 
 export default function CaseStudiesPage() {
@@ -68,7 +86,7 @@ export default function CaseStudiesPage() {
   );
 }
 
-function CaseStudyCard({ study }:any) {
+function CaseStudyCard({ study }: any) {
   return (
     <article
       className="group flex flex-col rounded-xl border border-border/50 bg-card overflow-hidden transition-all duration-300 hover:border-accent hover:shadow-lg hover:-translate-y-0.5 cursor-pointer"
@@ -106,7 +124,7 @@ function CaseStudyCard({ study }:any) {
 
         {/* Tags */}
         <div className="flex flex-wrap gap-2 mb-6">
-          {study.tags.map((tag:any) => (
+          {study.tags.map((tag: any) => (
             <span
               key={tag}
               className="rounded-full bg-secondary px-3 py-1 text-xs text-secondary-foreground"
